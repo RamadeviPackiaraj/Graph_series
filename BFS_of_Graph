@@ -1,0 +1,24 @@
+import java.util.*;
+class Solution {
+    // Function to return Breadth First Search Traversal of given graph.
+    public ArrayList<Integer> bfs(ArrayList<ArrayList<Integer>> adj) {
+        // code here
+        int V=adj.size();
+        ArrayList<Integer> al=new ArrayList<>();
+        boolean[] vis=new boolean[V];
+        Queue<Integer> q=new LinkedList<>();
+        q.add(0);
+        vis[0]=true;
+        while(!q.isEmpty()){
+            int Node=q.poll();
+            al.add(Node);
+            for(int num:adj.get(Node)){
+                if(vis[num]==false){
+                    vis[num]=true;
+                    q.add(num);
+                }
+            }
+        }
+        return al;
+    }
+}
